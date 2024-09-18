@@ -24,6 +24,9 @@ export default function NavMenu() {
         <li>
           <Link href={"/users"}>Users</Link>
         </li>
+        <li>
+          <Link href={"/api/content"}>Dummy Posts API</Link>
+        </li>
       </ul>
     </nav>
   );
