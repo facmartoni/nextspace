@@ -41,7 +41,7 @@ export default async function NavMenu() {
           <Link href={"/users"}>Users</Link>
         </li>
         <li>
-          <Link href={"/api/content"}>Dummy Posts API</Link>
+          <Link href={"/dashboard"}>Dashboard</Link>
         </li>
       </ul>
     </nav>
