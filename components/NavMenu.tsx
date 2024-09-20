@@ -1,20 +1,39 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./NavMenu.module.css";
+import { SignInButton, SignOutButton } from "./buttons";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-export default function NavMenu() {
+export default async function NavMenu() {
+  const session = await getServerSession(authOptions);
+  console.log("LALAL");
+  console.log(session);
+  console.log("LALAL");
   return (
     <nav className={styles.nav}>
-      <Link href={"/"}>
+      <Link
+        href={"/"}
+        style={{ position: "relative", width: "80px", height: "100%" }}
+      >
         <Image
+          style={{ objectFit: "contain" }}
+          priority
           src="/logo.png"
-          width={80}
-          height={0}
-          layout="intrinsic"
+          fill
           alt="NextSpace Logo"
         ></Image>
       </Link>
       <ul className={styles.links}>
+        {session ? (
+          <li>
+            <SignOutButton></SignOutButton>
+          </li>
+        ) : (
+          <li>
+            <SignInButton></SignInButton>
+          </li>
+        )}
         <li>
           <Link href={"/about"}>About</Link>
         </li>
