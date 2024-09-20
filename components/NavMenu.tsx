@@ -7,9 +7,6 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function NavMenu() {
   const session = await getServerSession(authOptions);
-  console.log("LALAL");
-  console.log(session);
-  console.log("LALAL");
   return (
     <nav className={styles.nav}>
       <Link
